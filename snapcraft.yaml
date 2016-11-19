@@ -1,0 +1,36 @@
+name: weechat 
+version: '1.6'
+summary: WeeChat is a fast, light and extensible chat client.
+description: |
+  WeeChat is a fast, light and extensible chat client, released under the terms
+  of the GNU General Public License version 3.
+grade: devel
+confinement: devmode
+
+
+apps:
+  weechat:
+    command: weechat
+
+parts:
+  weechat:
+    plugin: cmake
+    configflags: [-DCMAKE_INSTALL_PREFIX=/usr, -DOPTION_ENABLE_IRC=on]
+    source: https://github.com/weechat/weechat/archive/v1.6.tar.gz
+    build-packages:
+      - libgcrypt20-dev
+      - zlib1g-dev
+      - build-essential
+      - automake
+      - checkinstall
+      - libcurl4-gnutls-dev
+      - openssl
+      - libncurses5-dev
+      - libgnutls28-dev
+      - gettext
+      - ca-certificates
+      - libaspell-dev
+      - python-dev
+      - libperl-dev
+      - libv8-dev
+      - liblua5.3-dev
